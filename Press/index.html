@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="estilos.css">
+	<script src="script.js"></script>
+	<title>Press Banca</title>
+</head>
+<body>
+	<div class="vh-75">
+		<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+		  <div class="carousel-inner">
+		    <div class="carousel-item active">
+		        <img src="img/mejorar.jpg" class="d-block w-100" alt="...">
+		    </div>
+		  </div>
+		</div>
+		<h1 class="text-center mt-4 mb-2">Mejora en Press Banca</h1>
+		<p class="text-center">¿Qué peso deseas levantar?<br>
+		Te recomiendo elegir un peso de 5kg o maximo 10kg por encima de tu RM.</p>
+		<div class="row m-0 justify-content-center d-flex">
+			<div class="col-12 col-md-3 p-0 m-1" id="contentBoton">
+				<input type="text" class="form-control border border-dark" id="pesoNuevo" value="" placeholder="Ingresa el peso en Kg" onkeypress="keyp()">
+			</div>
+			<div class="col-12 col-md-2 p-0 m-1">
+				<button class="btn btn-warning w-100" onclick="calcular()">CALCULAR</button>
+			</div>
+		</div>
+		<div class="row m-0 mt-5">
+			<div class="col-12">
+				<h1 class="text-center">Día de Fuerza</h1>
+			</div>
+			<div class="col-12 col-md-6 my-3">
+				<table class="table table-bordered ">
+				  <thead class="bg-danger">
+				    <tr>
+				      <th scope="col">Semana</th>
+				      <th scope="col">Series</th>
+				      <th scope="col">Peso</th>
+				      <th scope="col">% RM</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr>
+				      <th scope="row">1</th>
+				      <td>5x5</td>
+				      <td id="tabla1">0</td>
+				      <td>75%</td>
+				    </tr>
+				  </tbody>
+				</table>
+			</div>
+			<div class="col-12 col-md-6 my-3">
+				<table class="table table-bordered ">
+				  <thead class="bg-danger">
+				    <tr>
+				      <th scope="col">Semana</th>
+				      <th scope="col">Series</th>
+				      <th scope="col">Peso</th>
+				      <th scope="col">% RM</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr>
+				      <th scope="row">2</th>
+				      <td>4x4</td>
+				      <td id="tabla2">0</td>
+				      <td>80%</td>
+				    </tr>
+				  </tbody>
+				</table>
+			</div>
+			<div class="col-12 col-md-6 my-3">
+				<table class="table table-bordered ">
+				  <thead class="bg-danger">
+				    <tr>
+				      <th scope="col">Semana</th>
+				      <th scope="col">Series</th>
+				      <th scope="col">Peso</th>
+				      <th scope="col">% RM</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr>
+				      <th scope="row">3</th>
+				      <td>3x3</td>
+				      <td id="tabla3">0</td>
+				      <td>85%</td>
+				    </tr>
+				  </tbody>
+				</table>
+			</div>
+			<div class="col-12 col-md-6 my-3">
+				<table class="table table-bordered ">
+				  <thead class="bg-danger">
+				    <tr>
+				      <th scope="col">Semana</th>
+				      <th scope="col">Series</th>
+				      <th scope="col">Peso</th>
+				      <th scope="col">% RM</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr>
+				      <th scope="row">4</th>
+				      <td>2x2</td>
+				      <td id="tabla4">0</td>
+				      <td>90%</td>
+				    </tr>
+				  </tbody>
+				</table>
+			</div>
+			<div class="col-12 col-md-6 my-3">
+				<table class="table table-bordered ">
+				  <thead class="bg-warning">
+				    <tr>
+				      <th scope="col">Semana</th>
+				      <th scope="col">Series</th>
+				      <th scope="col">Peso</th>
+				      <th scope="col">% RM</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr>
+				      <th scope="row">5 (Descarga)</th>
+				      <td>5x4</td>
+				      <td id="tabla5">0</td>
+				      <td>65%</td>
+				    </tr>
+				  </tbody>
+				</table>
+			</div>
+			<div class="col-12 col-md-6 my-3">
+				<table class="table table-bordered ">
+				  <thead class="bg-danger">
+				    <tr>
+				      <th scope="col">Semana</th>
+				      <th scope="col">Series</th>
+				      <th scope="col">Peso</th>
+				      <th scope="col">% RM</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr>
+				      <th scope="row">6</th>
+				      <td>1x1</td>
+				      <td id="tabla6">0</td>
+				      <td>100%</td>
+				    </tr>
+				  </tbody>
+				</table>
+			</div>
+			<div class="col-12">
+				<h1 class="text-center">Día de Hipertrofia</h1>
+			</div>
+			<div class="col-12 col-md-6 my-3">
+				<table class="table table-bordered ">
+				  <thead class="bg-primary">
+				    <tr>
+				      <th scope="col">Semana</th>
+				      <th scope="col">Series</th>
+				      <th scope="col">Peso</th>
+				      <th scope="col">% RM</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr>
+				      <th scope="row">1</th>
+				      <td>3x12</td>
+				      <td id="tabla7">0</td>
+				      <td>60%</td>
+				    </tr>
+				  </tbody>
+				</table>
+			</div>
+			<div class="col-12 col-md-6 my-3">
+				<table class="table table-bordered ">
+				  <thead class="bg-primary">
+				    <tr>
+				      <th scope="col">Semana</th>
+				      <th scope="col">Series</th>
+				      <th scope="col">Peso</th>
+				      <th scope="col">% RM</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr>
+				      <th scope="row">2</th>
+				      <td>4x10</td>
+				      <td id="tabla8">0</td>
+				      <td>65%</td>
+				    </tr>
+				  </tbody>
+				</table>
+			</div>
+			<div class="col-12 col-md-6 my-3">
+				<table class="table table-bordered ">
+				  <thead class="bg-primary">
+				    <tr>
+				      <th scope="col">Semana</th>
+				      <th scope="col">Series</th>
+				      <th scope="col">Peso</th>
+				      <th scope="col">% RM</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr>
+				      <th scope="row">3</th>
+				      <td>3x8</td>
+				      <td id="tabla9">72.5</td>
+				      <td>70%</td>
+				    </tr>
+				  </tbody>
+				</table>
+			</div>
+			<div class="col-12 col-md-6 my-3">
+				<table class="table table-bordered ">
+				  <thead class="bg-primary">
+				    <tr>
+				      <th scope="col">Semana</th>
+				      <th scope="col">Series</th>
+				      <th scope="col">Peso</th>
+				      <th scope="col">% RM</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr>
+				      <th scope="row">4</th>
+				      <td>4x8</td>
+				      <td id="tabla10">72.5</td>
+				      <td>70%</td>
+				    </tr>
+				  </tbody>
+				</table>
+			</div>
+			<div class="col-12 col-md-6 my-3">
+				<table class="table table-bordered ">
+				  <thead class="bg-warning">
+				    <tr>
+				      <th scope="col">Semana</th>
+				      <th scope="col">Series</th>
+				      <th scope="col">Peso</th>
+				      <th scope="col">% RM</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr>
+				      <th scope="row">5 (Descarga)</th>
+				      <td>2x10</td>
+				      <td id="tabla11">0</td>
+				      <td>60%</td>
+				    </tr>
+				  </tbody>
+				</table>
+			</div>
+			<div class="col-12 col-md-6 my-3">
+				<table class="table table-bordered ">
+				  <thead class="bg-primary">
+				    <tr>
+				      <th scope="col">Semana</th>
+				      <th scope="col">Series</th>
+				      <th scope="col">Peso</th>
+				      <th scope="col">% RM</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr>
+				      <th scope="row">6</th>
+				      <td>3x10</td>
+				      <td id="tabla12">0</td>
+				      <td>70%</td>
+				    </tr>
+				  </tbody>
+				</table>
+			</div>
+		</div>
+		<div class="row m-0">
+			<div class="col-12 py-5">
+				<p class="text-center h-5">A continuación, me gustaría darte algunos tips para mejorar tu técnica.</p>
+			</div>
+			<div class="col-12 col-md-6 mt-1">
+				<img src="img/arco.png" class="img-fluid" alt="">
+			</div>
+			<div class="col-12 col-md-6 align-self-center mt-1">
+				<h1>Mejorar tu posición</h1>
+				<p>Para mejorar tu técnica considero indispencable tener una correcta posición, realiznado un arco lumbar como se muestra en la imagen, retrayendo tus escapulas y teniendo un agarre ligeramente más abierto de la anchura de los hombros.
+				Hacer esto te ayudará a acortar el recorrido y conseguir menos tensión sobre el deltoides, permitiendote controlar mejor las cargas y siendo menos lesivo.</p>
+			</div>
+			<div class="col-12 col-md-6 align-self-center mt-1">
+				<h1>Series de Aproximación</h1>
+				<p>Antes de entrenar te recomiendo realizar ejercicios de activación de los músculos de los brazos, posteriormente realizar series de aproximación.
+				Para realizarlas correctamente deberás ir subiendo el peso y haciendo entre 2 y 6 repeticiones máximo para no cansarte, a medida que subes el peso vas bajando repeticiones hasta llegar al peso con el que harás series efectivas. Esto será de gran importancia para evitar lesiones y rendir al máximo durante el entrenamiento. Puedes realizar entre 2 y 3 de estas series. </p>
+			</div>
+				<div class="col-12 col-md-6 mt-1">
+				<img src="img/discos.jpg" class="img-fluid w-100" alt="">
+			</div>
+			<div class="col-12 col-md-6 mt-1">
+				<img src="img/respirar.jpg" class="img-fluid w-100" alt="">
+			</div>
+			<div class="col-12 col-md-6 align-self-center mt-1">
+				<h1>Mejorar tu respiración</h1>
+				<p>Por último, una correcta respiración será clave para realizar bien el movimiento, ésta debe consistir en respirar profundamente y aguantar el aire mientras sacas la barra. Con la barra encima puedes exhalar y volver a llenar tus pulmones de aire, deberás aguantar la respiración hasta volver a llevar la barra arriba.</p>
+			</div>
+		</div>
+	</div>
+</body>
+<footer class="pt-5 px-2">
+	<h3 class="text-end h-3">Juan Camilo Orozco Alzate</h3>
+	<p>Todo el contenido de este sitio web fue extraído del siguiente video de Sr Fufi en YouTube: <a href="https://www.youtube.com/watch?v=NBK10CAHGw0&t=691s">https://www.youtube.com/watch?v=NBK10CAHGw0&t=691s</a></p>
+</footer>
+</html>
